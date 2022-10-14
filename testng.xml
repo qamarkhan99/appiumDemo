@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="D:/Appium/src/test/java/testcases/OpenDaewooApp.java">
-    <classes>
-        <class name="testcases.OpenApp">
-            <methods><include name="clickAppButton"/></methods>
-        </class>
-    </classes>
+    <test verbose="2" preserve-order="true" name="D:/Appium/src/test/java">
+        <classes>
+            <class name="testcases.LoginTest">
+                <methods><include name="verifyLoginTest"/></methods>
+            </class>
+            <class name="testcases.LogoutTest">
+                <methods><include name="verifyLogoutTest"/></methods>
+            </class>
+        </classes>
     </test>
 </suite>
