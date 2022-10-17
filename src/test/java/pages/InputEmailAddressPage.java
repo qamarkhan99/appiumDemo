@@ -5,10 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Common_Utilities;
+import utilities.ExcelReader;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 public class InputEmailAddressPage {
+
 
     public InputEmailAddressPage(){
         PageFactory.initElements(AppDriver.getDriver(), this);
@@ -22,15 +25,14 @@ public class InputEmailAddressPage {
     @FindBy(id = "com.booking:id/identity_landing_social_button_text")
     public WebElement btnContinue;
 
-    public void inputEmailAddress () throws IOException {
+    public void inputEmailAddress (String Email) throws IOException {
         Common_Utilities.waitForElement(txtEmailAddress);
-        String randomEmailGenerator = Common_Utilities.generateRandomEmail(15);
-        txtEmailAddress.sendKeys(randomEmailGenerator);
+        txtEmailAddress.sendKeys(Email);
     }
 
-    public void inputEmailAddressForSignIn () throws IOException {
+    public void inputEmailAddressForSignIn (String Email) throws IOException {
         Common_Utilities.waitForElement(txtEmailAddress);
-        txtEmailAddress.sendKeys("khan14@gmail.com");
+        txtEmailAddress.sendKeys(Email);
     }
 
     public void clickContinueButton() throws IOException {

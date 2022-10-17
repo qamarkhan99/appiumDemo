@@ -4,10 +4,10 @@
     <test verbose="2" preserve-order="true" name="D:/Appium/src/test/java">
         <classes>
             <class name="testcases.LoginTest">
-                <methods><include name="verifyLoginTest"/></methods>
+                <methods><include name="loginTest"/></methods>
             </class>
             <class name="testcases.LogoutTest">
-                <methods><include name="verifyLogoutTest"/></methods>
+                <methods><include name="logoutTest"/></methods>
             </class>
         </classes>
     </test>

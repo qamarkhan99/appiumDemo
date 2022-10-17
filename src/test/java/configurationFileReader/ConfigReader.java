@@ -108,6 +108,16 @@ public String getAppPackage() {
     }
 }
 
+    // app package
+    public String getAppActivity() {
+        String appActivity = properties.getProperty("appActivity");
+        if (appActivity != null)
+            return appActivity;
+        else {
+            throw new RuntimeException("appPackage not specified in config.property file");
+        }
+    }
+
 
 
 }

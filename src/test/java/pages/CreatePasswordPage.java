@@ -31,9 +31,9 @@ public class CreatePasswordPage {
     public WebElement btn_createAccount_SignIn;
 
 
-    public void inputPassword() throws IOException {
+    public void inputPassword(String password) throws IOException {
         Common_Utilities.waitForElement(txtPassword);
-        txtPassword.sendKeys("Testing123");
+        txtPassword.sendKeys(password);
     }
 
     public void inputConfirmPassword() throws IOException {

@@ -5,9 +5,10 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.*;
-
+import utilities.DataProviderUtil;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Hashtable;
 
 public class LogoutTest extends AppFactory {
     private LoginPage loginPage;
@@ -17,6 +18,7 @@ public class LogoutTest extends AppFactory {
     private SoftAssert softAssert;
     private EnterPasswordPage enterPasswordPage;
 
+
     @BeforeClass
     public void init() throws MalformedURLException, InterruptedException {
         loginPage = new LoginPage();
@@ -25,17 +27,21 @@ public class LogoutTest extends AppFactory {
         welcomePage = new WelcomePage();
         softAssert = new SoftAssert();
         enterPasswordPage = new EnterPasswordPage();
+
     }
-        @Test(priority = 2)
-        public void verifyLogoutTest() throws IOException, InterruptedException {
+        @Test(priority = 2,dataProviderClass = DataProviderUtil.class,dataProvider = "dp")
+        public void logoutTest(Hashtable<String,String> data) throws IOException, InterruptedException {
+
+
+
         welcomePage.clickButtonSignIn();
         loginPage.clickButtonSignInWithEmail();
-        inputEmailAddressPage.inputEmailAddressForSignIn();
+        inputEmailAddressPage.inputEmailAddressForSignIn(data.get("Email"));
         inputEmailAddressPage.clickContinueButton();
-        Thread.sleep(3000);
-        createPasswordPage.inputPassword();
+        Thread.sleep(5000);
+        createPasswordPage.inputPassword(data.get("Password"));
         enterPasswordPage.clickButtonSignIn();
-       // welcomePage.clickButtonStartSearching();
+     //   welcomePage.clickButtonStartSearching();
         welcomePage.clickButtonProfile();
         welcomePage.clickSignOut();
         welcomePage.clickButtonProceed();
